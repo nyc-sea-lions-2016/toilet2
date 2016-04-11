@@ -1,0 +1,36 @@
+<% provide(:title, 'Sign up') %>
+<h1>Sign up</h1>
+
+<div class="row">
+  <div class="small-6 columns">
+    <%= form_for :user, url: users_path do |f| %>
+
+      <%= f.label :username %>
+      <%= f.text_field :username %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+      <%= f.submit "Create my account", class: "primary button" %>
+    </div>
+    <div class='small-6 columns'>
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+
+      <%= f.label :zip_code %>
+      <%= f.text_field :zip_code %>
+
+      <%= f.label :gender %>
+      <%= f.text_field :gender %>
+
+    <% end %>
+  </div>
+</div>

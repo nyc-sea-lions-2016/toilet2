@@ -1,0 +1,22 @@
+<div><h1> Review this toilet mothafucka </h1></div>
+
+<div>
+	<form action='/reviews' method='post'>
+		<div class='reviews_new_form'>
+			1<input type='radio' name='review[rating]' value='1'>
+			2<input type='radio' name='review[rating]' value='2'>
+			3<input type='radio' name='review[rating]' value='3'>
+			4<input type='radio' name='review[rating]' value='4'>
+			5<input type='radio' name='review[rating]' value='5'>
+		</div>
+		<div class='reviews_new_form'>
+			<textarea type='textarea' rows='5' name='review[review_text]' placeholder='Review here...'></textarea>
+		</div>
+		<input type='hidden' name='review[reviewer_id]' value='<%= session[:user_id] %>'>
+		<input type='hidden' name='review[toilet_id]' value='<%= params[:id] %>'>
+		<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"/>
+		<div class='reviews_new_button'>
+			<input type='submit' value='Review'>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Toilet Pal</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
+</div>
+
+<div class="top-bar" id="main-menu">
+  <div class="top-bar-title">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li id="logo" class="menu-text">TOILET PAL</li>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu button-group" id='nav-bar' data-responsive-menu="drilldown medium-dropdown">
+      <% if logged_in? && current_user.admin? %>
+        <li class='button'>
+          <%= link_to 'Admin', users_path %>
+        </li>
+      <% end %>
+      <li class='button'>
+        <%= link_to 'Home', root_path %>
+      </li>
+      <% if logged_in? %>
+        <li class='button'>
+          <%= link_to 'Profile', current_user %>
+        </li>
+        <li class='button'>
+          <%= link_to "Settings", edit_user_path(current_user) %>
+        </li>
+        <li class='button'>
+          <%= link_to "Log out", logout_path, method: :delete %>
+        </li>
+      <% else %>
+        <li class='button'>
+          <%= link_to 'New User', new_user_path %>
+        </li>
+        <li class='button'>
+          <%= link_to 'Login', login_path %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<div class='container'>
+  <% flash.each do |message_type, message| %>
+    <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
+</div>
+
+<%= yield %>
+
+
+<footer class="footer">
+  <div class="row full-width">
+    <div class="small-12 medium-3 large-4 columns">
+      <i class="fi-laptop"></i>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum maiores alias ea sunt facilis impedit fuga dignissimos illo quaerat iure in nobis id quos, eaque nostrum! Unde, voluptates suscipit repudiandae!</p>
+    </div>
+    <div class="small-12 medium-3 large-4 columns">
+      <i class="fi-html5"></i>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit impedit consequuntur at! Amet sed itaque nostrum, distinctio eveniet odio, id ipsam fuga quam minima cumque nobis veniam voluptates deserunt!</p>
+    </div>
+    <div class="small-6 medium-3 large-2 columns">
+      <h4>Work With Us</h4>
+      <ul class="footer-links">
+        <li><a href="#">Alyssa</a></li>
+        <li><a href="#">John</a></li>
+        <li><a href="#">FJ</a></li>
+      <ul>
+    </div>
+    <div class="small-6 medium-3 large-2 columns">
+      <h4>Follow Us</h4>
+      <ul class="footer-links">
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">Instagram</a></li>
+      <ul>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+export GOOGLE_MAP_KEY = "AIzaSyALN7GVrxfs8xQmQ1Rn1AXZe-uOGd3muVU"

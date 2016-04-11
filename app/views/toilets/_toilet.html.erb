@@ -1,0 +1,11 @@
+<li class="toilet-block">
+  <p><%= link_to "#{toilet.name}", toilet_path(toilet) %></p>
+  <p><%=toilet.location%></p>
+  <p>
+    <%toilet.tags.each do |tag| %>
+    <span class="secondary label">
+    <%= tag.tag %>
+    </span>
+    <% end %>
+  </p>
+</li>

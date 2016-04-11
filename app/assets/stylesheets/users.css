@@ -1,0 +1,117 @@
+#error_explanation {
+  color: red;
+}
+
+#error_explanation ul {
+  color: red;
+  margin: 0 0 30px 0;
+}
+
+.field_with_errors {
+  @extend .has-error;
+}
+
+.field_with_errors .form-control {
+  color: $state-danger-text;
+}
+
+.users {
+  list-style: none;
+  margin: 0;
+}
+
+.users li {
+  overflow: auto;
+  padding: 10px 0;
+  border-bottom: 1px solid #73B99C;
+}
+
+.user-about {
+  display: block;
+  text-align: center;
+  border-style: solid;
+  border-color: #73B99C;
+  width: 25%;
+  margin: auto;
+  margin-top: 1%;
+}
+
+.ind-review {
+  border-top: 2px solid #73B99C;
+}
+
+.reviews-user {
+  position: relative;
+  margin-right: 25%;
+  padding-right: 1%;
+  margin-left: 25%;
+  padding-left: 1%;
+  border-left: 2px solid #73B99C;
+  border-right: 2px solid #73B99C;
+}
+
+.reviews-user ul {
+  list-style: none;
+  width: 100%;
+  margin-left: 0;
+}
+
+.favorites-user {
+  margin-right: 160px;
+  position: absolute;
+  /*border: 2px solid #73B99C;*/
+}
+
+.favorites-user ul{
+  list-style: none;
+}
+.gravatar_edit {
+  padding-left: .9375rem;
+}
+
+.digg_pagination {
+  background: white;
+  cursor: default;
+  /* self-clearing method: */ }
+  .digg_pagination a, .digg_pagination span, .digg_pagination em {
+    padding: 0.2em 0.5em;
+    display: block;
+    float: left;
+    margin-right: 1px; }
+  .digg_pagination .disabled {
+    color: #999999;
+    border: 1px solid #73B99C; }
+  .digg_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    background: #73B99C;
+    color: white;
+    border: 1px solid #73B99C; }
+  .digg_pagination a {
+    text-decoration: none;
+    color: #105cb6;
+    border: 1px solid #73B99C; }
+    .digg_pagination a:hover, .digg_pagination a:focus {
+      color: #73B99C;
+      border-color: #73B99C; }
+  .digg_pagination .page_info {
+    background: #2e6ab1;
+    color: white;
+    padding: 0.4em 0.6em;
+    width: 22em;
+    margin-bottom: 0.3em;
+    text-align: center; }
+    .digg_pagination .page_info b {
+      color: #000033;
+      background: #6aa6ed;
+      padding: 0.1em 0.25em; }
+  .digg_pagination:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  * html .digg_pagination {
+    height: 1%; }
+  *:first-child + html .digg_pagination {
+    overflow: hidden; }

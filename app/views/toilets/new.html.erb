@@ -1,0 +1,16 @@
+<h1>Add a New Toilet to ToiletPal!</h1>
+
+<%= form_for @toilet do |f| %>
+	<%= f.fields_for :t_info do |field| %>
+		<%= field.label "Title of toilet: " %>
+		<%= field.text_field :name %>
+		<%= field.label "Location (street address): " %>
+		<%= field.text_field :location %>
+	<% end %>
+	<%= f.fields_for :tags do |field| %>
+		<%= field.label "Tags (separated by commas)" %>
+		<%= field.text_field :tag %>
+	<% end %>
+
+	<%= f.submit %>
+<% end %>

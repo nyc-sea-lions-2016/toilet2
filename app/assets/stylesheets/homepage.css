@@ -1,0 +1,15 @@
+.home-page-featured-toilet {
+  width: 20%;
+}
+
+#trending-toilets {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 50px;
+}
+
+#home-page-image {
+  width: 100%;
+}
+

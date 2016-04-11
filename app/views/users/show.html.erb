@@ -1,0 +1,52 @@
+<div>
+  <div class='user-about'>
+    <h4>
+      <%= gravatar_for @user %>
+      <strong>User:</strong>
+      <%= @user.username %>
+    </h4>
+
+    <p>
+      <strong>Email:</strong>
+      <%= @user.email %>
+    </p>
+
+    <p>
+      <strong>Name:</strong>
+      <%= @user.first_name %> <%= @user.last_name %>
+    </p>
+
+    <p>
+      <strong>Zip:</strong>
+      <%= @user.zip_code %>
+    </p>
+
+    <p>
+      <strong>Gender:</strong>
+      <%= @user.gender %>
+    </p>
+  </div>
+</div><br>
+<div>
+  <div class='side-nav favorites-user'>
+    <strong><%= @user.username.capitalize %>'s Favorites:</strong>
+    <ul>
+      <% @user.favorites.each do |favorite| %>
+        <li class='active'><%= link_to "#{favorite.toilet.name}", toilet_path(favorite.toilet)  %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class='reviews-user'>
+    <p>
+      <h4><%= @user.username.capitalize %>'s Reviews:</h4>
+      <ul>
+        <% @user.reviews.each do |review| %>
+          <li class='ind-review'>Toilet: <%= link_to "#{review.toilet.name}", toilet_path(review.toilet) %></li>
+          <li>Rating: <%= review.rating %></li>
+          <li>Date: <%= review.created_at.strftime("%B %d, %Y") %></li>
+          <li><%= review.review_text %></li>
+        <% end %>
+      </ul>
+    </p>
+  </div>
+</div>

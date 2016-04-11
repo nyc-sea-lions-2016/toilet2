@@ -1,0 +1,54 @@
+<div class='row top_title'>
+	<div class='large-2 columns'>
+		<% if @toilet.favorites.any?{|fav| fav.favoriter_id == session[:user_id]} %>
+			<%= image_tag "fav-star.jpg" %>
+		<% else %>
+			<a href='/toilets/<%= @toilet.id %>/favorite'><%= image_tag "non-fav-star.jpg"%></a>
+		<% end %>
+	</div>
+	<div class='large-10 columns'>
+		<h1><%= @toilet.name %> Toilet's</h1>
+	</div>
+</div>
+<div class='row'>
+	<div class='large-5 columns'>
+		<p>Location: <%= @toilet.location %></p>
+		<p>Neighborhood: <%= @toilet.neighborhood %></p>
+		<p>Borough: <%= @toilet.sublocality %></p>
+		<p>Tags: <%= tags(@toilet) %>
+		<p>Average Review: <%= @average_review %></p>
+		<p><a href='/toilets/<%= @toilet.id %>/review'>Click</a> to review your Toilet experience</p>
+	</div>
+	<div id="google-map-show" ></div>
+	 <script>
+  	function initMap() {
+    var mapDiv = document.getElementById('google-map-show');
+    var map = new google.maps.Map(mapDiv, {
+          center: {lat: <%=@toilet.latitude%>, lng: <%=@toilet.longitude%>},
+          zoom: 16
+        });
+    var marker = new google.maps.Marker({
+      position: {lat: <%=@toilet.latitude%>, lng: <%=@toilet.longitude%>},
+      map: map,
+      title: "TOILET"
+    });
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"async defer></script>
+	</div>
+</div>
+
+
+
+<% @toilet.reviews.each do |review| %>
+	<div class='review_wrapper'>
+		<div class='reviewer_info toilet_reviews'>
+			<a href='/users/<%= review.reviewer_id %>'><%= review.reviewer.username %></a>
+			<p>Rating: <%= review.rating %></p>
+
+		</div>
+		<div class='review_text toilet_reviews'>
+			<%= review.review_text[2..-1] %>
+		</div>
+	</div>
+<% end %>
